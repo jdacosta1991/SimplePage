@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :lessons
-  resources :courses
-  root to: 'courses#index' 
+  resources :courses do
+    resources :lessons
+end
+
+  resources :lessons, only: [] do 
+    resources :questions
+end
+
+    root to: 'courses#index' 
 end
